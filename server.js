@@ -1,10 +1,10 @@
 
 var express = require("express");
 var bodyParser = require("body-parser");
-var mysql = require("mysql");
+
 
 var connect = require("./config/connection.js")
-var connection = mysql.createConnection(connect);
+var orm = require("./config/orm.js");
 
 var app = express();
 
@@ -21,16 +21,8 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-connection.connect(function(err) {
-    if (err) {
-      console.error("error connecting: " + err.stack);
-      return;
-    }
-  
-    console.log("connected as id " + connection.threadId);
-  });
 
-app.use('/', express.static('assets'));
+app.use('/', express.static('public'));
 
 app.get("/", function(req, res) {
     connection.query("SELECT * FROM burgers", function(err, data) {
