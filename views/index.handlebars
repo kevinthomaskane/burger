@@ -1,14 +1,33 @@
 <h1>Welcome to eat-da-burger</h1>
 
-<ul>
-  {{#each burgers}}
-  <li>
-    <p>
-      {{this.id}}. {{this.burger_name}}
-
-      <button data-burgerid="{{this.id}}" class="delplan">Eat a burger</button>
-    </p>
-  </li>
-  {{/each}}
-</ul>
-
+<div class="not-eaten">
+  <h3>Menu</h3>
+  <ul>
+    {{#each notEaten}}
+    <li>
+      <p>
+        Number: {{this.id}}. {{this.burger_name}}
+        <button data-burgerid="{{this.id}}" class="devour">Order</button>
+      </p>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+<div id="main">
+  <img src="./assets/css/burger.jpg">
+  <br>
+  <input type="text" placeholder="type in a burger that you want to eat">
+  <button id="submitBurger">Create your burger</button>
+</div>
+<div class="eaten">
+  <h3>You've Eaten:</h3>
+  <ul>
+    {{#each eaten}}
+    <li>
+      <p>
+        {{this.id}}. {{this.burger_name}}
+      </p>
+    </li>
+    {{/each}}
+  </ul>
+</div>
