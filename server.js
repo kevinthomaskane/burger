@@ -28,16 +28,6 @@ app.use(routes);
 
 app.use('/', express.static('public'));
 
-// app.get("/", function(req, res) {
-//     connection.query("SELECT * FROM burgers", function(err, data) {
-//       if (err) {
-//         return res.status(500).end();
-//       }
-  
-//       res.render("index", { burgers: data });
-//     });
-//   });
-
 
 app.listen(PORT, function() {
     // Log (server-side) when our server has started
