@@ -1,14 +1,14 @@
-*{
+*:not(input){
     text-align: center;
 }
 
 body{
     background-color: lemonchiffon;
 }
+
 ul{
     padding-left: 0;
 }
-
 
 input{
     width: 150px;
@@ -43,6 +43,7 @@ input{
 div{
     display: inline-block;
 }
+
 img{
     width: 400px;
     height: 350px;
