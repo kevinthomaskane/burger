@@ -7,13 +7,11 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
     var eaten = [];
     var notEaten = [];
-  burger.all(function(data) {
-    console.log(data); 
+  burger.all(function(data) { 
     for (let i = 0; i < data.length; i++){
-        console.log(data[i].devoured)
         if (data[i].devoured === true){
             eaten.push(data[i]);
-        } else{
+        } else {
             notEaten.push(data[i]);
         }
     }
@@ -21,7 +19,6 @@ router.get("/", function(req, res) {
       eaten: eaten,
       notEaten: notEaten
     };
-
     res.render("index", object);
   });
 });
@@ -31,7 +28,6 @@ router.post("/new", function(req, res) {
     res.json({ id: result.insertId });
   });
 });
-
 
 router.put("/burgers/:id", function(req, res) {
   var id = req.params.id
