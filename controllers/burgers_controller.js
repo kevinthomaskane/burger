@@ -8,6 +8,9 @@ var counter = 0;
 
 router.get("/", function(req, res) {
   counter++
+  connection.query("UPDATE views SET ?", {views: counter}, function(result){
+    console.log(result)
+  })
   console.log('this page has been viewed ' + counter + "times")
     var eaten = [];
     var notEaten = [];
