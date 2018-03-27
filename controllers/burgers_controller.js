@@ -10,7 +10,7 @@ router.get("/", function(req, res) {
   burger.all(function(data) { 
     console.log(data)
     for (let i = 0; i < data.length; i++){
-        if (data[i].devoured === true){
+        if (data[i].devoured === 1){
             eaten.push(data[i]);
         } else {
             notEaten.push(data[i]);
@@ -32,7 +32,7 @@ router.post("/new", function(req, res) {
 
 router.put("/burgers/:id", function(req, res) {
   var id = req.params.id
-    burger.update("burgers", {devoured: true}, {id: id}, function(result) {
+    burger.update("burgers", {devoured: 1}, {id: id}, function(result) {
     if (result.changedRows == 0) {
       return res.status(404).end();
     } else {
