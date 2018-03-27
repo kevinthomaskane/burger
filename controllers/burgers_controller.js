@@ -4,7 +4,11 @@ var express = require("express");
 var router = express.Router();
 var burger = require("../models/burger.js");
 
+var counter = 0;
+
 router.get("/", function(req, res) {
+  counter++
+  console.log('this page has been viewed ' + counter + "times")
     var eaten = [];
     var notEaten = [];
   burger.all(function(data) { 
