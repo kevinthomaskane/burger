@@ -8,6 +8,7 @@ router.get("/", function(req, res) {
     var eaten = [];
     var notEaten = [];
   burger.all(function(data) { 
+    console.log(data)
     for (let i = 0; i < data.length; i++){
         if (data[i].devoured === true){
             eaten.push(data[i]);
