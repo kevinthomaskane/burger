@@ -8,10 +8,9 @@ var counter = 0;
 
 router.get("/", function(req, res) {
   counter++
-  connection.query("UPDATE views SET ?", {num: counter}, function(result){
-    console.log(result)
-  })
-  console.log('this page has been viewed ' + counter + "times")
+    burger.update("burgers", {views: counter}, {id: 1}, function(result){
+      console.log(result)
+    })
     var eaten = [];
     var notEaten = [];
   burger.all(function(data) { 
@@ -30,6 +29,7 @@ router.get("/", function(req, res) {
     res.render("index", object);
   });
 });
+
 
 router.post("/new", function(req, res) {
   burger.insert("burgers", req.body.name, function(result) {
